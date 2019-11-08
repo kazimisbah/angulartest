@@ -1,0 +1,16 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$SERVER_KEY_NEW"
+    - echo "$SERVER_KEY_NEW" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H 'zwayam.hola.in' >> ~/.ssh/known_hosts
+  script:
+    # your own server details here
+    - ssh kazi@zwayam.hola.in < deploy.sh
