@@ -1,0 +1,27 @@
+<div class="container">
+
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Employee_Id</th>
+            <th>Goal Desc </th>
+            <th>Responsibilities </th>
+            <th>From_date</th>
+            <th>To_date</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.emp_id}}</td>
+                <td>{{user.goal_description}}</td>
+                <td>{{user.responsibilites}}</td>
+                <td>{{user.from_date}}</td>
+                <td>{{user.to_date}}</td>
+                <td><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+                    <button class="btn btn-primary" (click)="updateUser(user)">Edit</button></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="newUser()">Add Goal</button>
+</div>
