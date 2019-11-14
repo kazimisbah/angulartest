@@ -9,7 +9,7 @@ import{UserService}  from '../../shared-service/user.service';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
-  private user:User;
+  public user:User;
 
   constructor(private _userService:UserService,private _rotuer:Router) { }
 
